@@ -37,14 +37,10 @@ public class WeatherService implements MessageSourceAware {
     }
 
     /**
-     * Gets weather for the given city. Uses Yahoo API.
      *
      * @param city
-     * name of the city for which weather is to be retrieved.
-     * @return
-     * an object representing the weather details.
+     * @return an object representing the weather details
      * @throws WeatherServiceException
-     *             if city is null or blank or any other error occurred.
      */
     public Channel getWeather(String city) throws WeatherServiceException {
         YahooWeatherService service;
@@ -53,7 +49,7 @@ public class WeatherService implements MessageSourceAware {
             throw new WeatherServiceException(messageSource.getMessage(Error.INVALID_CITY, null, null));
         }
         try {
-            // find woeid(where on earth identifier) for the given city
+            // find Yahoo API "where on earth identifier' for the  city
             Integer woeid = getWoeid(city);
             if (woeid != null) {
                 service = new YahooWeatherService();
@@ -66,6 +62,12 @@ public class WeatherService implements MessageSourceAware {
         return channel;
     }
 
+    /**
+     *
+     * @param city
+     * @return city's where on earth identifier
+     * @throws IOException
+     */
     private Integer getWoeid(String city) throws IOException {
         Integer woeid = null;
         String baseUrl = "http://query.yahooapis.com/v1/public/yql?q=";
@@ -92,7 +94,7 @@ public class WeatherService implements MessageSourceAware {
         return woeid;
     }
     /**
-     * Classes to store json result
+     * Static classes to store json result
      *
      */
     private static class ResultArray {

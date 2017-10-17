@@ -9,6 +9,7 @@ package vnoumenko.exception;
  */
 
 public class Error {
+
     public static final String INVALID_CITY = "invalid city";
     public static final String ERROR = "error";
 }

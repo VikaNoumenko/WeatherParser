@@ -11,6 +11,8 @@ import java.util.Date;
  */
 
 public class WeatherBean {
+
+
     String city;
 
     Integer temprature;

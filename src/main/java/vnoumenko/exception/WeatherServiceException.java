@@ -10,7 +10,6 @@ package vnoumenko.exception;
 
 public class WeatherServiceException extends Exception{
 
-
     private String error;
 
     public WeatherServiceException(String error) {

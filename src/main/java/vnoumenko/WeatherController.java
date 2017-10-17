@@ -28,6 +28,10 @@ public class WeatherController {
     @Autowired
     WeatherService weatherService;
 
+    /**
+     *
+     * @return List of cities
+     */
     @ModelAttribute("cityList")
     public List<String> getCity()
     {
@@ -38,6 +42,11 @@ public class WeatherController {
         return cityList;
     }
 
+    /**
+     *
+     * @param model
+     * @return CurrentWeatherAjax view
+     */
     @RequestMapping(value="/current-weather", method=RequestMethod.GET)
     public String dispForm(Map<String, WeatherBean> model)
     {
@@ -46,6 +55,14 @@ public class WeatherController {
         return "CurrentWeatherAjax";
     }
 
+    /**
+     *
+     * @param wb
+     * @param result
+     * @return weatherBean
+     * @throws WeatherServiceException
+     * @throws ParseException
+     */
     @RequestMapping(value="/current-weather", method=RequestMethod.POST)
     @ResponseBody
     public WeatherBean processForm(@Valid @ModelAttribute("wb") WeatherBean wb,BindingResult result)
@@ -61,6 +78,11 @@ public class WeatherController {
         return wb;
     }
 
+    /**
+     *
+     * @param e
+     * @return exception message
+     */
     @ExceptionHandler({Exception.class})
     @ResponseBody
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
