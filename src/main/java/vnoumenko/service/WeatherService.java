@@ -41,7 +41,7 @@ public class WeatherService implements MessageSourceAware {
     private Logger logger = LoggerFactory.getLogger(WeatherService.class);
 
     /**
-     *
+     * Gets temperature by id
      * @param city
      * @return an object representing the weather details
      * @throws WeatherServiceException
