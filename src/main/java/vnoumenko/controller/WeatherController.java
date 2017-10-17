@@ -49,7 +49,7 @@ public class WeatherController {
      * @return WeatherAjax view
      */
     @RequestMapping(value="/current-weather", method=RequestMethod.GET)
-    public String dispForm(Map<String, Weather> model) {
+    public String showForm(Map<String, Weather> model) {
         Weather wb = new Weather();
         model.put("wb",wb);
         return "WeatherAjax";
