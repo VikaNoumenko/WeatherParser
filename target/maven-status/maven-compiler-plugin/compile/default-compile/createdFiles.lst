@@ -1,0 +1,9 @@
+vnoumenko\WeatherService$ResultArray.class
+vnoumenko\WeatherBean.class
+vnoumenko\WeatherController.class
+vnoumenko\exception\Error.class
+vnoumenko\WeatherService.class
+vnoumenko\WeatherService$Place.class
+vnoumenko\WeatherService$QueryArray.class
+vnoumenko\WeatherService$ResultsArray.class
+vnoumenko\exception\WeatherServiceException.class
