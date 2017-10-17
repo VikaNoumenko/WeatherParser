@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.logging.Logger;
 
 /**
  * 17.10.2017
@@ -36,6 +37,8 @@ public class WeatherService implements MessageSourceAware {
         this.messageSource = messageSource;
     }
 
+    private static Logger logger = Logger.getLogger(WeatherService.class.getName());
+
     /**
      *
      * @param city
@@ -43,8 +46,12 @@ public class WeatherService implements MessageSourceAware {
      * @throws WeatherServiceException
      */
     public Channel getWeather(String city) throws WeatherServiceException {
+
         YahooWeatherService service;
         Channel channel = null;
+
+        logger.info("INFO");
+
         if (StringUtils.isEmpty(city)) {
             throw new WeatherServiceException(messageSource.getMessage(Error.INVALID_CITY, null, null));
         }
@@ -69,6 +76,9 @@ public class WeatherService implements MessageSourceAware {
      * @throws IOException
      */
     private Integer getWoeid(String city) throws IOException {
+
+        logger.info("INFO");
+
         Integer woeid = null;
         String baseUrl = "http://query.yahooapis.com/v1/public/yql?q=";
         String query = "select woeid from geo.places where text=\"" + city
