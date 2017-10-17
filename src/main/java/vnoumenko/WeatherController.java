@@ -33,8 +33,7 @@ public class WeatherController {
      * @return List of cities
      */
     @ModelAttribute("cityList")
-    public List<String> getCity()
-    {
+    public List<String> getCity() {
         List<String> cityList = new ArrayList<>();
         cityList.add("Moscow");
         cityList.add("Samara");
@@ -48,8 +47,7 @@ public class WeatherController {
      * @return CurrentWeatherAjax view
      */
     @RequestMapping(value="/current-weather", method=RequestMethod.GET)
-    public String dispForm(Map<String, WeatherBean> model)
-    {
+    public String dispForm(Map<String, WeatherBean> model) {
         WeatherBean wb = new WeatherBean();
         model.put("wb",wb);
         return "CurrentWeatherAjax";
@@ -66,8 +64,7 @@ public class WeatherController {
     @RequestMapping(value="/current-weather", method=RequestMethod.POST)
     @ResponseBody
     public WeatherBean processForm(@Valid @ModelAttribute("wb") WeatherBean wb,BindingResult result)
-            throws WeatherServiceException, ParseException
-    {
+            throws WeatherServiceException, ParseException {
         Channel ch = null;
         ch = weatherService.getWeather(wb.getCity());
         if (ch != null){

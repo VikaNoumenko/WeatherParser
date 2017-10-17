@@ -4,6 +4,8 @@ import com.github.fedy2.weather.YahooWeatherService;
 import com.github.fedy2.weather.data.Channel;
 import com.github.fedy2.weather.data.unit.DegreeUnit;
 import com.google.gson.Gson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.MessageSourceAware;
 import org.springframework.stereotype.Service;
@@ -18,7 +20,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.logging.Logger;
 
 /**
  * 17.10.2017
@@ -37,7 +38,7 @@ public class WeatherService implements MessageSourceAware {
         this.messageSource = messageSource;
     }
 
-    private static Logger logger = Logger.getLogger(WeatherService.class.getName());
+    private Logger logger = LoggerFactory.getLogger(WeatherService.class);
 
     /**
      *
@@ -47,11 +48,11 @@ public class WeatherService implements MessageSourceAware {
      */
     public Channel getWeather(String city) throws WeatherServiceException {
 
+        logger.info("INFO");
+        logger.error("ERROR");
+
         YahooWeatherService service;
         Channel channel = null;
-
-        logger.info("INFO");
-
         if (StringUtils.isEmpty(city)) {
             throw new WeatherServiceException(messageSource.getMessage(Error.INVALID_CITY, null, null));
         }
@@ -78,8 +79,10 @@ public class WeatherService implements MessageSourceAware {
     private Integer getWoeid(String city) throws IOException {
 
         logger.info("INFO");
+        logger.error("ERROR");
 
         Integer woeid = null;
+        //search in database by yahoo query language
         String baseUrl = "http://query.yahooapis.com/v1/public/yql?q=";
         String query = "select woeid from geo.places where text=\"" + city
                 + "\"";
@@ -105,7 +108,6 @@ public class WeatherService implements MessageSourceAware {
     }
     /**
      * Static classes to store json result
-     *
      */
     private static class ResultArray {
         public QueryArray query;

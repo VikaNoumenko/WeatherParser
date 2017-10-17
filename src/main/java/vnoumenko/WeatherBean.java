@@ -12,16 +12,17 @@ import java.util.Date;
 
 public class WeatherBean {
 
-
     String city;
 
     Integer temprature;
 
     public String getCity() {
+
         return city;
     }
 
     public void setCity(String city) {
+
         this.city = city;
     }
 
@@ -30,6 +31,7 @@ public class WeatherBean {
     }
 
     public void setTemprature(Integer temprature) {
+
         this.temprature = temprature;
     }
 
