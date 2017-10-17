@@ -1,4 +1,4 @@
-package vnoumenko;
+package vnoumenko.controller;
 
 import com.github.fedy2.weather.data.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import vnoumenko.model.Weather;
+import vnoumenko.service.WeatherService;
 import vnoumenko.exception.WeatherServiceException;
 
 import javax.validation.Valid;
@@ -44,13 +46,13 @@ public class WeatherController {
     /**
      *
      * @param model
-     * @return CurrentWeatherAjax view
+     * @return WeatherAjax view
      */
     @RequestMapping(value="/current-weather", method=RequestMethod.GET)
-    public String dispForm(Map<String, WeatherBean> model) {
-        WeatherBean wb = new WeatherBean();
+    public String dispForm(Map<String, Weather> model) {
+        Weather wb = new Weather();
         model.put("wb",wb);
-        return "CurrentWeatherAjax";
+        return "WeatherAjax";
     }
 
     /**
@@ -63,13 +65,13 @@ public class WeatherController {
      */
     @RequestMapping(value="/current-weather", method=RequestMethod.POST)
     @ResponseBody
-    public WeatherBean processForm(@Valid @ModelAttribute("wb") WeatherBean wb,BindingResult result)
+    public Weather processForm(@Valid @ModelAttribute("wb") Weather wb, BindingResult result)
             throws WeatherServiceException, ParseException {
         Channel ch = null;
         ch = weatherService.getWeather(wb.getCity());
         if (ch != null){
 
-            wb.setTemprature(ch.getItem().getCondition().getTemp());
+            wb.setTemperature(ch.getItem().getCondition().getTemp());
 
         }
         return wb;

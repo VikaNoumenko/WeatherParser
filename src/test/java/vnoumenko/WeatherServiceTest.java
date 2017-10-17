@@ -4,8 +4,7 @@ import com.github.fedy2.weather.data.Channel;
 import org.junit.Assert;
 import org.junit.Test;
 import vnoumenko.exception.WeatherServiceException;
-
-import static org.junit.Assert.*;
+import vnoumenko.service.WeatherService;
 
 /**
  * 17.10.2017
@@ -39,7 +38,7 @@ public class WeatherServiceTest {
             weatherService.getWeather(null);
             Assert.fail("fail");
         } catch (WeatherServiceException e) {
-            Assert.assertTrue(Error.INVALID_CITY == e.getError());
+            Assert.assertTrue(ErrorClass.INVALID_CITY == e.getError());
         }
     }
 

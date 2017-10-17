@@ -16,31 +16,31 @@
     <script type="text/javascript">
         function fetchWeather() {
 
-            // get the form value
+
             var selectedCity = $('#selectedCity').val();
 
             if (selectedCity == '') {
-                $('#wait').html("Please select a city")
+                $('#wait').html("Select the city")
                 wipeTable();
 
             } else {
-                $('#wait').html("Please wait while we retrieve current weather...")
+                $('#wait').html("Wait")
                 $.ajax({
 
                     type : "POST",
                     url : "/current-weather",
                     data : "city=" + selectedCity,
                     success : function(response) {
-                        // we have the response
+
                         $('#wait').html("<br>")
                         $('#cityRow').html(selectedCity)
 
-                        $('#tempRow').html(response.temprature + "&deg;" + "C")
+                        $('#tempRow').html(response.temperature + "&deg;" + "C")
 
                         $('#weather').removeClass("hidden")
                     },
                     error : function(){
-                        $('#wait').html("An error occurred, please try again later.")
+                        $('#wait').html("Error ")
                         wipeTable();
                     }
                 });

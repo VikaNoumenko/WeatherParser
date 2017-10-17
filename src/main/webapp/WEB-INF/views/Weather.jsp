@@ -22,7 +22,7 @@
 
         <tr>
             <td>Temperature</td>
-            <td>${wb.temprature}&deg;C</td>
+            <td>${wb.temperature}&deg;C</td>
         </tr>
 
 

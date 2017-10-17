@@ -1,4 +1,4 @@
-package vnoumenko;
+package vnoumenko.service;
 
 import com.github.fedy2.weather.YahooWeatherService;
 import com.github.fedy2.weather.data.Channel;
@@ -10,7 +10,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.MessageSourceAware;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import vnoumenko.exception.Error;
+import vnoumenko.exception.ErrorClass;
 import vnoumenko.exception.WeatherServiceException;
 
 import javax.xml.bind.JAXBException;
@@ -54,7 +54,7 @@ public class WeatherService implements MessageSourceAware {
         YahooWeatherService service;
         Channel channel = null;
         if (StringUtils.isEmpty(city)) {
-            throw new WeatherServiceException(messageSource.getMessage(Error.INVALID_CITY, null, null));
+            throw new WeatherServiceException(messageSource.getMessage(ErrorClass.INVALID_CITY, null, null));
         }
         try {
             // find Yahoo API "where on earth identifier' for the  city
@@ -65,7 +65,7 @@ public class WeatherService implements MessageSourceAware {
                         DegreeUnit.CELSIUS);
             }
         } catch (JAXBException | IOException e) {
-            throw new WeatherServiceException(messageSource.getMessage(Error.ERROR, null, null), e);
+            throw new WeatherServiceException(messageSource.getMessage(ErrorClass.ERROR, null, null), e);
         }
         return channel;
     }

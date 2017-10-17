@@ -1,20 +1,20 @@
-package vnoumenko;
+package vnoumenko.model;
 
 import java.util.Date;
 
 /**
  * 17.10.2017
- * WeatherBean
+ * Weather
  *
  * @author Victoria Noumenko
  * @version v1.0
  */
 
-public class WeatherBean {
+public class Weather {
 
     String city;
 
-    Integer temprature;
+    Integer temperature;
 
     public String getCity() {
 
@@ -26,13 +26,13 @@ public class WeatherBean {
         this.city = city;
     }
 
-    public Integer getTemprature() {
-        return temprature;
+    public Integer getTemperature() {
+        return temperature;
     }
 
-    public void setTemprature(Integer temprature) {
+    public void setTemperature(Integer temperature) {
 
-        this.temprature = temprature;
+        this.temperature = temperature;
     }
 
 

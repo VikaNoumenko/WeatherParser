@@ -1,9 +1,9 @@
-vnoumenko\WeatherService$ResultArray.class
-vnoumenko\WeatherBean.class
-vnoumenko\WeatherController.class
-vnoumenko\exception\Error.class
-vnoumenko\WeatherService.class
-vnoumenko\WeatherService$Place.class
-vnoumenko\WeatherService$QueryArray.class
-vnoumenko\WeatherService$ResultsArray.class
+vnoumenko\service\WeatherService$ResultsArray.class
+vnoumenko\service\WeatherService$QueryArray.class
+vnoumenko\service\WeatherService$ResultArray.class
+vnoumenko\service\WeatherService.class
+vnoumenko\service\WeatherService$Place.class
+vnoumenko\exception\ErrorClass.class
+vnoumenko\controller\WeatherController.class
+vnoumenko\model\Weather.class
 vnoumenko\exception\WeatherServiceException.class
