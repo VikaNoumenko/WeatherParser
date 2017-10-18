@@ -16,7 +16,7 @@ import vnoumenko.service.WeatherService;
  */
 
 public class WeatherServiceTest {
-    
+
     WeatherService weatherService = new WeatherService();
 
     @Test
@@ -38,6 +38,4 @@ public class WeatherServiceTest {
             Assert.assertTrue(ErrorClass.ERROR == e.getError());
         }
     }
-
-
 }

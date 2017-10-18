@@ -57,7 +57,7 @@ public class WeatherService implements MessageSourceAware {
             throw new WeatherServiceException(messageSource.getMessage(ErrorClass.INVALID_CITY, null, null));
         }
         try {
-            // find Yahoo API "where on earth identifier' for the  city
+            // find Yahoo API "where on earth' identifier for the city
             Integer woeid = getWoeid(city);
             if (woeid != null) {
                 service = new YahooWeatherService();
@@ -73,7 +73,7 @@ public class WeatherService implements MessageSourceAware {
     /**
      *
      * @param city
-     * @return city's where on earth identifier
+     * @return city's 'where on earth' identifier
      * @throws IOException
      */
     private Integer getWoeid(String city) throws IOException {

@@ -61,8 +61,7 @@
     <table>
         <tr>
             <td>Город</td>
-            <td><form:select path="city" id="selectedCity"
-                             >
+            <td><form:select path="city" id="selectedCity">
                 <form:option value="" label="Выбор" />
                 <form:options items="${cityList}" />
             </form:select></td>
