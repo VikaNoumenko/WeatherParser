@@ -5,8 +5,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Weather</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>??????</title>
 </head>
 <body>
 
@@ -16,13 +16,13 @@
 <c:if test="${not empty city}">
     <table border="1">
         <tr>
-            <td>City</td>
+            <td>?????</td>
             <td> ${wb.city}</td>
         </tr>
 
         <tr>
-            <td>Temperature</td>
-            <td>${wb.temprature}&deg;C</td>
+            <td>???????????</td>
+            <td>${wb.temperature}&deg;C</td>
         </tr>
 
 
