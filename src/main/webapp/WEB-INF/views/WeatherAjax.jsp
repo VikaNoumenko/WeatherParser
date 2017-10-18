@@ -53,7 +53,7 @@
         }
     </script>
     <body>
-<button onclick="fetchWeather();" > Weather</button>
+<button onclick="fetchWeather();"> Weather</button>
 </body>
 </head>
 <body>
@@ -62,7 +62,7 @@
         <tr>
             <td>City</td>
             <td><form:select path="city" id="selectedCity"
-                             onchange="fetchWeather()">
+                             >
                 <form:option value="" label="Select" />
                 <form:options items="${cityList}" />
             </form:select></td>
