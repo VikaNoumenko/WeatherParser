@@ -1,10 +1,10 @@
 <html>
 <head>
-    <title>Weather</title>
+    <title>Погода</title>
 </head>
 <body>
 
-<p>Error</p>
+<p>Ошибка</p>
 
 </body>
 </html>;
