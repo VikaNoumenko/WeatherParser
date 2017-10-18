@@ -11,8 +11,7 @@
         }
     </style>
     <title>Weather</title>
-    <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script type="text/javascript">
         function fetchWeather() {
 
@@ -53,6 +52,9 @@
 
         }
     </script>
+    <body>
+<button onclick="fetchWeather();" > Weather</button>
+</body>
 </head>
 <body>
 <form:form commandName="wb">
