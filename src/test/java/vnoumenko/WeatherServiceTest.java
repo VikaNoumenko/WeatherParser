@@ -3,6 +3,7 @@ package vnoumenko;
 import com.github.fedy2.weather.data.Channel;
 import org.junit.Assert;
 import org.junit.Test;
+import vnoumenko.exception.ErrorClass;
 import vnoumenko.exception.WeatherServiceException;
 import vnoumenko.service.WeatherService;
 
@@ -15,10 +16,8 @@ import vnoumenko.service.WeatherService;
  */
 
 public class WeatherServiceTest {
-
-
+    
     WeatherService weatherService = new WeatherService();
-
 
     @Test
     public void testGetWeather() throws Exception {
@@ -30,17 +29,15 @@ public class WeatherServiceTest {
         }
     }
 
-
-    /*
     @Test
     public void testGetWeatherNullCity() {
         try {
-            weatherService.getWeather(null);
-            Assert.fail("fail");
+            weatherService.getWeather("null");
+            Assert.assertFalse(false);
         } catch (WeatherServiceException e) {
-            Assert.assertTrue(ErrorClass.INVALID_CITY == e.getError());
+            Assert.assertTrue(ErrorClass.ERROR == e.getError());
         }
     }
 
-*/
+
 }
